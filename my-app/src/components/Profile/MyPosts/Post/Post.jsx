@@ -1,12 +1,13 @@
 import React from 'react';
 import s from './Post.module.css';
 
-const Post = () => {
+const Post = (props) => {
   return (
   <div className={s.item}>
-    post 1
+    <img src='https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg'/>;
+    {props.message}
     <div>
-    <span>Like</span>
+    <span>Like: {props.like}</span>
     </div>
   </div>
   )

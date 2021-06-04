@@ -1,3 +1,6 @@
 .item {
-  color:coral
+  color: #34C924;
+}
+.item img {
+width: 100px;
 }
