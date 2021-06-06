@@ -7,7 +7,7 @@ const Post = (props) => {
     <img src='https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg'/>;
     {props.message}
     <div>
-    <span>Like: {props.like}</span>
+    <span>Like: </span>{props.likesCount}
     </div>
   </div>
   )
