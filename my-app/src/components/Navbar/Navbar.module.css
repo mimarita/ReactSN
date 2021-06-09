@@ -7,6 +7,14 @@
   color: white;
   text-decoration:none;
 }
+.item {
+  color: white;
+  text-decoration:none;
+}
 .item a.activeLink {
   color: gold
+}
+
+.img {
+  width: 40px;
 }

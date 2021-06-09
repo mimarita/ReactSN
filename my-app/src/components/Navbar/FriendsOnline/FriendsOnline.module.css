@@ -1,0 +1,15 @@
+
+.avatar {
+    width: 27px;
+    border-radius: 50%;
+}
+.name {
+    color: cornflowerblue;
+    font-size: 10px;
+}
+.friends {
+    display: inline-block;
+    margin: 10 auto;
+    padding: 0px 5px;
+
+}
