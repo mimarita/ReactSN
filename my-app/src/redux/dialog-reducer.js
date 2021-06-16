@@ -21,22 +21,26 @@ let initialState =  {
 
 const dialogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-        state.newMessageBody = action.body;
-        return state;
+        case UPDATE_NEW_MESSAGE_BODY: 
+        return {
+            ...state,
+            newMessageBody: action.body
+        };
+        //это (выше) мы создаем объект stateCopy, но не даем ему имя, а прям сразу возвращаем
      case SEND_MESSAGE: 
         let body = state.newMessageBody;
-        state.newMessageBody = '';
-        state.messages.push({ id: 6, message: body })
-        return state;
+        return {...state, 
+            newMessageBody: '',
+            messages: [...state.messages, { id: 6, message: body }]
+        }; //это (выше) мы создаем объект stateCopy, но не даем ему имя, а прям сразу возвращаем
         default:
         return state;
     }
 }
-export const sendMessageCreater = () => ({
+export const sendMessageCreator = () => ({
     
     type: 'SEND-MESSAGE'
   })
-export const updateNewMessageBodyCreater = (body) => 
+export const updateNewMessageBodyCreator = (body) => 
 ({type: 'UPDATE-NEW-MESSAGE-BODY', body: body})
 export default dialogReducer
