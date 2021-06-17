@@ -3,12 +3,12 @@ const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let initialState =  {
     dialogs: [
-        { id: 1, name: 'Dimych', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-        { id: 2, name: 'Vagrid', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-        { id: 3, name: 'Ika', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-        { id: 4, name: 'Era', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-        { id: 5, name: 'Eva', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-        { id: 6, name: 'Irina', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' }],
+        { id: 1, name: 'Groot', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
+        { id: 2, name: 'Anthony Edward Stark', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
+        { id: 3, name: 'Wanda Maximoff', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
+        { id: 4, name: 'Loki Laufeyson', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
+        { id: 5, name: 'Robert Bruce Banner', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
+        { id: 6, name: 'Natasha Romanoff', avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' }],
     messages: [
         { id: 1, message: '1qqq' },
         { id: 2, message: '2qqq' },
