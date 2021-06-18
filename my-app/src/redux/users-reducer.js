@@ -5,12 +5,7 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
 users: [
-    { id: 1, followed: false, fullName: 'Groot', status: 'I am superhero!', location: { planet: 'X', country: 'Dendraria' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-    { id: 2, followed: true, fullName: 'Anthony Edward Stark', status: 'I am superhero!', location: { planet: 'Earth', country: 'USA' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-    { id: 3, followed: true, fullName: 'Wanda Maximoff', status: 'I am superhero!', location: { planet: 'Earth', country: 'Sokovia' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-    { id: 4, followed: false, fullName: 'Loki Laufeyson', status: 'I am superhero!', location: { planet: 'TVA', country: 'office' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-    { id: 5, followed: true, fullName: 'Robert Bruce Banner', status: 'I am superhero!', location: { planet: 'Earth', country: 'USA' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' },
-    { id: 6, followed: true, fullName: 'Natasha Romanoff', status: 'I am superhero!', location: { planet: 'Earth', country: 'Russia' }, avatar: 'https://animeslayers.ru/wp-content/uploads/2018/12/dlyasteam4.jpg' }
+    
 ]};
 
 const usersReducer = (state = initialState, action) => {
