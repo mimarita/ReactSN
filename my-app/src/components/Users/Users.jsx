@@ -1,29 +1,34 @@
-import React from 'react';
 import s from './Users.module.css';
-import * as axios from 'axios';
 import userPhoto from '../../assets/images/user.jpg';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
+const Users = (props) => {
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-let Users = (props) => {
-    let getUsers = () => {
-    if (props.users.length === 0) {
-
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(responce => {
-            props.setUsers(responce.data.items)
-                
-                })};}
+        let pages = [];
+        for (let i=1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
     return <div>
-    <button onClick={getUsers}> Get Users </button>
-        {
-            props.users.map(u => <div key={u.id}>
+        <div>
+            {pages.map(p => {
+                return <span className={props.currentPage === p && s.selectedPage}
+                    onClick={() => { props.onPageChanged(p); }}> {p} </span>
+            })}
+        </div>
+        {props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photos.small !=null ? u.photos.small : userPhoto} className={s.photo} />
-                    </div>
+                        <NavLink to={'/profile/' + u.id}>
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.photo} />
+                        </NavLink></div>
                     <div>
-                        {u.followed
-                            ? <button onClick={() => { props.unfollow(u.id) }} >Follow</button>
-                            : <button onClick={() => { props.follow(u.id) }} >Unfollow</button>}
+                        {
+                        u.followed
+                            ? <button onClick={() => { props.unfollow(u.id) }} > Follow </button>
+                            : <button onClick={() => { props.follow(u.id) }} > Unfollow </button>
+                            }
                     </div>
                 </span>
                 <span>
@@ -39,5 +44,4 @@ let Users = (props) => {
             </div>)}
     </div>
 }
-
 export default Users;
