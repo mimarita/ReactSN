@@ -2,14 +2,15 @@ import s from './Users.module.css';
 import userPhoto from '../../assets/images/user.jpg';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { usersAPI } from '../../api/api';
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-        let pages = [];
-        for (let i=1; i <= pagesCount; i++) {
-            pages.push(i);
-        }
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
     return <div>
         <div>
             {pages.map(p => {
@@ -18,30 +19,36 @@ const Users = (props) => {
             })}
         </div>
         {props.users.map(u => <div key={u.id}>
-                <span>
-                    <div>
-                        <NavLink to={'/profile/' + u.id}>
+            <span><div>
+                <div>
+                    <NavLink to={'/profile/' + u.id}>
                         <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.photo} />
-                        </NavLink></div>
-                    <div>
-                        {
+                    </NavLink></div>
+                <div>
+                    {
                         u.followed
-                            ? <button onClick={() => { props.unfollow(u.id) }} > Follow </button>
-                            : <button onClick={() => { props.follow(u.id) }} > Unfollow </button>
-                            }
-                    </div>
+                            ? <button disabled={props.followingInProgress
+                                .some(id=>id===u.id)} onClick={() => {
+                                    props.unfollow(u.id)
+                                }} > Unfollow </button>
+                            : <button disabled={props.followingInProgress
+                                .some(id=>id===u.id)} onClick={() =>{
+                                    props.follow(u.id)
+                                }}> Follow </button>
+                                    }
+                </div> </div></span>
+            <span>
+                <span>
+                    <div>{u.name}</div>
+                    <div>{u.status}</div>
                 </span>
                 <span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{'u.location.planet'}</div>
-                        <div>{'u.location.city'}</div>
-                    </span>
+                    <div>{'u.location.planet'}</div>
+                    <div>{'u.location.city'}</div>
                 </span>
-            </div>)}
-    </div>
+            </span>
+        </div>)
+}
+    </div >
 }
 export default Users;
