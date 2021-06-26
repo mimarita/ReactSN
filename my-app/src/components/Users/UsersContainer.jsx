@@ -3,7 +3,7 @@ import { getUsers, toggleFollowingInProgress, follow, setCurrentPage, unfollow }
 import React from 'react';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
-import { usersAPI } from '../../api/api';
+
 
 
 class UsersContainer extends React.Component {
