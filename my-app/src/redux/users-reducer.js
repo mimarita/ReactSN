@@ -1,4 +1,3 @@
-import { findAllByPlaceholderText } from "@testing-library/react";
 import { usersAPI } from "../api/api";
 
 const FOLLOW = 'FOLLOW';
