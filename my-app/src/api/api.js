@@ -5,11 +5,12 @@ const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {"API-KEY": "a1ef7cd3-1bc4-4585-a638-33451964e4db"},
+    json: true,
 });
 
 export const usersAPI = {
-    getUsers(currentPage = 1, pageSize = 10) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+    requestUsers(currentPage = 1, pageSize = 10, term = '') {
+        return instance.get(`users?page=${currentPage}&count=${pageSize}&term=${term}`)
             .then(response => {
                 return response.data;
             });
@@ -35,5 +36,9 @@ export const profileAPI = {
 export const authAPI = {
     me() {
         return instance.get(`auth/me`)
+    },
+    signIn({ email, password }) {
+        return instance.get(`auth/login`)
+        .then((response) => response.body)
     },
 }

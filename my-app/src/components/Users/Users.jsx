@@ -2,6 +2,7 @@ import s from './Users.module.css';
 import userPhoto from '../../assets/images/user.jpg'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import UsersSearchForm from './UsersSearch';
 
 
 const Users = (props) => {
@@ -11,13 +12,15 @@ const Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    return <div>
+    return ( 
+    <div>
         <div>
             {pages.map(p => {
                 return <span className={props.currentPage === p && s.selectedPage}
                     onClick={() => { props.onPageChanged(p); }}> {p} </span>
             })}
         </div>
+        <UsersSearchForm onFilterChanged={props.onFilterChanged} />
         {props.users.map(u => <div key={u.id}>
             <span><div>
                 <div>
@@ -49,6 +52,7 @@ const Users = (props) => {
             </span>
         </div>)
 }
-    </div >
+    </div >)
 }
+
 export default Users;
